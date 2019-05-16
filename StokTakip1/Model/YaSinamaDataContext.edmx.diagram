@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2a54d5791c4f4212924f4f1c26b7f9c6" Name="Diagram1">
+        <EntityTypeShape EntityType="YaSinamaModel.Demirbas" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Demirbas_Departman" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.DepartmanHoldingSirket" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Departmanlar" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Holdingler" Width="1.5" PointX="1.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Kategori" Width="1.5" PointX="1.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Kisi" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Kullanici" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Kullanici_Role" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Roller" Width="1.5" PointX="3" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Sirketler" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Urun" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Urun_Stok" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.Zimmet" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YaSinamaModel.KisiDepartman" Width="1.5" PointX="5.375" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="YaSinamaModel.FK_Demirbas_Departman_Demirbas" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Demirbas_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Demirbas_Departman_Zimmet" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_DepartmanHoldingSirket_Departmanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_DepartmanHoldingSirket_Sirketler" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Zimmet_Departmanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Sirketler_Holdingler" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Urun_Kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Kullanici_Kisi" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Zimmet_Kisi" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Kullanici_Role_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Kullanici_Role_Roller" ManuallyRouted="false" />
+        <AssociationConnector Association="YaSinamaModel.FK_Urun_Stok_Urun" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

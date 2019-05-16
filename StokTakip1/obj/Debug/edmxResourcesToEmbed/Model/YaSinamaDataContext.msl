@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YaSinamaModelStoreContainer" CdmEntityContainer="YaSinamaEntities">
+    <EntitySetMapping Name="Demirbas">
+      <EntityTypeMapping TypeName="YaSinamaModel.Demirbas">
+        <MappingFragment StoreEntitySet="Demirbas">
+          <ScalarProperty Name="DemirbasNo" ColumnName="DemirbasNo" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="DemirbasKodu" ColumnName="DemirbasKodu" />
+          <ScalarProperty Name="DemirbasAdi" ColumnName="DemirbasAdi" />
+          <ScalarProperty Name="DemirbasAdedi" ColumnName="DemirbasAdedi" />
+          <ScalarProperty Name="DemirbasAciklama" ColumnName="DemirbasAciklama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Demirbas_Departman">
+      <EntityTypeMapping TypeName="YaSinamaModel.Demirbas_Departman">
+        <MappingFragment StoreEntitySet="Demirbas_Departman">
+          <ScalarProperty Name="DemirbasDepartmanId" ColumnName="DemirbasDepartmanId" />
+          <ScalarProperty Name="DemirbasId" ColumnName="DemirbasId" />
+          <ScalarProperty Name="ZimmetId" ColumnName="ZimmetId" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmanHoldingSirket">
+      <EntityTypeMapping TypeName="YaSinamaModel.DepartmanHoldingSirket">
+        <MappingFragment StoreEntitySet="DepartmanHoldingSirket">
+          <ScalarProperty Name="DepartmanHoldingSirketId" ColumnName="DepartmanHoldingSirketId" />
+          <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+          <ScalarProperty Name="SirketId" ColumnName="SirketId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departmanlar">
+      <EntityTypeMapping TypeName="YaSinamaModel.Departmanlar">
+        <MappingFragment StoreEntitySet="Departmanlar">
+          <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+          <ScalarProperty Name="DepartmanAdi" ColumnName="DepartmanAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Holdingler">
+      <EntityTypeMapping TypeName="YaSinamaModel.Holdingler">
+        <MappingFragment StoreEntitySet="Holdingler">
+          <ScalarProperty Name="HoldingId" ColumnName="HoldingId" />
+          <ScalarProperty Name="HoldingAdi" ColumnName="HoldingAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategori">
+      <EntityTypeMapping TypeName="YaSinamaModel.Kategori">
+        <MappingFragment StoreEntitySet="Kategori">
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kisi">
+      <EntityTypeMapping TypeName="YaSinamaModel.Kisi">
+        <MappingFragment StoreEntitySet="Kisi">
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="YaSinamaModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="SonGirisTarihi" ColumnName="SonGirisTarihi" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici_Role">
+      <EntityTypeMapping TypeName="YaSinamaModel.Kullanici_Role">
+        <MappingFragment StoreEntitySet="Kullanici_Role">
+          <ScalarProperty Name="KullaniciRoleId" ColumnName="KullaniciRoleId" />
+          <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roller">
+      <EntityTypeMapping TypeName="YaSinamaModel.Roller">
+        <MappingFragment StoreEntitySet="Roller">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RolAdi" ColumnName="RolAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sirketler">
+      <EntityTypeMapping TypeName="YaSinamaModel.Sirketler">
+        <MappingFragment StoreEntitySet="Sirketler">
+          <ScalarProperty Name="SirketId" ColumnName="SirketId" />
+          <ScalarProperty Name="HoldingId" ColumnName="HoldingId" />
+          <ScalarProperty Name="SirketAdi" ColumnName="SirketAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urun">
+      <EntityTypeMapping TypeName="YaSinamaModel.Urun">
+        <MappingFragment StoreEntitySet="Urun">
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+          <ScalarProperty Name="UrunBirimFiyati" ColumnName="UrunBirimFiyati" />
+          <ScalarProperty Name="SatinAlinmaTarihi" ColumnName="SatinAlinmaTarihi" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urun_Stok">
+      <EntityTypeMapping TypeName="YaSinamaModel.Urun_Stok">
+        <MappingFragment StoreEntitySet="Urun_Stok">
+          <ScalarProperty Name="StokId" ColumnName="StokId" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="Stok" ColumnName="Stok" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zimmet">
+      <EntityTypeMapping TypeName="YaSinamaModel.Zimmet">
+        <MappingFragment StoreEntitySet="Zimmet">
+          <ScalarProperty Name="ZimmetId" ColumnName="ZimmetId" />
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KisiDepartman">
+      <EntityTypeMapping TypeName="YaSinamaModel.KisiDepartman">
+        <MappingFragment StoreEntitySet="KisiDepartman">
+          <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+          <ScalarProperty Name="DepartmanAdi" ColumnName="DepartmanAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_DemirbasDuzenle" FunctionName="YaSinamaModel.Store.sp_DemirbasDuzenle" />
+    <FunctionImportMapping FunctionImportName="sp_DemirbasEkle" FunctionName="YaSinamaModel.Store.sp_DemirbasEkle" />
+    <FunctionImportMapping FunctionImportName="sp_Departmandaki_Demirbas01" FunctionName="YaSinamaModel.Store.sp_Departmandaki_Demirbas01" />
+    <FunctionImportMapping FunctionImportName="sp_Departmandaki_Demirbas02" FunctionName="YaSinamaModel.Store.sp_Departmandaki_Demirbas02" />
+    <FunctionImportMapping FunctionImportName="sp_DepartmanDemirbasEkle" FunctionName="YaSinamaModel.Store.sp_DepartmanDemirbasEkle" />
+    <FunctionImportMapping FunctionImportName="sp_DepartmanEkle" FunctionName="YaSinamaModel.Store.sp_DepartmanEkle" />
+    <FunctionImportMapping FunctionImportName="sp_DepartmanGuncelle" FunctionName="YaSinamaModel.Store.sp_DepartmanGuncelle" />
+    <FunctionImportMapping FunctionImportName="sp_kisi_Demirbas" FunctionName="YaSinamaModel.Store.sp_kisi_Demirbas" />
+    <FunctionImportMapping FunctionImportName="sp_kisi_Demirbas1" FunctionName="YaSinamaModel.Store.sp_kisi_Demirbas1" />
+    <FunctionImportMapping FunctionImportName="sp_UrunEkle" FunctionName="YaSinamaModel.Store.sp_UrunEkle" />
+    <FunctionImportMapping FunctionImportName="sp_UrunGuncelle" FunctionName="YaSinamaModel.Store.sp_UrunGuncelle" />
+  </EntityContainerMapping>
+</Mapping>

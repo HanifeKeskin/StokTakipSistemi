@@ -1,0 +1,1075 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="YaSinamaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Demirbas">
+          <Key>
+            <PropertyRef Name="DemirbasNo" />
+          </Key>
+          <Property Name="DemirbasNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunId" Type="int" />
+          <Property Name="DemirbasKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="DemirbasAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="DemirbasAdedi" Type="int" />
+          <Property Name="DemirbasAciklama" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Demirbas_Departman">
+          <Key>
+            <PropertyRef Name="DemirbasDepartmanId" />
+          </Key>
+          <Property Name="DemirbasDepartmanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DemirbasId" Type="int" Nullable="false" />
+          <Property Name="ZimmetId" Type="int" Nullable="false" />
+          <Property Name="Adet" Type="int" />
+        </EntityType>
+        <EntityType Name="DepartmanHoldingSirket">
+          <Key>
+            <PropertyRef Name="DepartmanHoldingSirketId" />
+          </Key>
+          <Property Name="DepartmanHoldingSirketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmanId" Type="int" Nullable="false" />
+          <Property Name="SirketId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departmanlar">
+          <Key>
+            <PropertyRef Name="DepartmanId" />
+          </Key>
+          <Property Name="DepartmanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmanAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Holdingler">
+          <Key>
+            <PropertyRef Name="HoldingId" />
+          </Key>
+          <Property Name="HoldingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoldingAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kisi">
+          <Key>
+            <PropertyRef Name="KisiId" />
+          </Key>
+          <Property Name="KisiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="int" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SonGirisTarihi" Type="smalldatetime" />
+          <Property Name="Silindi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Kullanici_Role">
+          <Key>
+            <PropertyRef Name="KullaniciRoleId" />
+          </Key>
+          <Property Name="KullaniciRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roller">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sirketler">
+          <Key>
+            <PropertyRef Name="SirketId" />
+          </Key>
+          <Property Name="SirketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoldingId" Type="int" Nullable="false" />
+          <Property Name="SirketAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriId" Type="int" Nullable="false" />
+          <Property Name="UrunAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UrunBirimFiyati" Type="money" Nullable="false" />
+          <Property Name="SatinAlinmaTarihi" Type="smalldatetime" />
+          <Property Name="Silindi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Urun_Stok">
+          <Key>
+            <PropertyRef Name="StokId" />
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="StokId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunId" Type="int" Nullable="false" />
+          <Property Name="Stok" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zimmet">
+          <Key>
+            <PropertyRef Name="ZimmetId" />
+          </Key>
+          <Property Name="ZimmetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisiId" Type="int" />
+          <Property Name="DepartmanId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YaSinama.dbo.KisiDepartman' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="KisiDepartman">
+          <Key>
+            <PropertyRef Name="KisiId" />
+            <PropertyRef Name="Ad" />
+            <PropertyRef Name="Soyad" />
+            <PropertyRef Name="DepartmanId" />
+            <PropertyRef Name="DepartmanAdi" />
+          </Key>
+          <Property Name="KisiId" Type="int" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartmanId" Type="int" Nullable="false" />
+          <Property Name="DepartmanAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Demirbas_Departman_Demirbas">
+          <End Role="Demirbas" Type="Self.Demirbas" Multiplicity="1" />
+          <End Role="Demirbas_Departman" Type="Self.Demirbas_Departman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Demirbas">
+              <PropertyRef Name="DemirbasNo" />
+            </Principal>
+            <Dependent Role="Demirbas_Departman">
+              <PropertyRef Name="DemirbasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Demirbas_Departman_Zimmet">
+          <End Role="Zimmet" Type="Self.Zimmet" Multiplicity="1" />
+          <End Role="Demirbas_Departman" Type="Self.Demirbas_Departman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zimmet">
+              <PropertyRef Name="ZimmetId" />
+            </Principal>
+            <Dependent Role="Demirbas_Departman">
+              <PropertyRef Name="ZimmetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Demirbas_Urun">
+          <End Role="Urun" Type="Self.Urun" Multiplicity="0..1" />
+          <End Role="Demirbas" Type="Self.Demirbas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="Demirbas">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmanHoldingSirket_Departmanlar">
+          <End Role="Departmanlar" Type="Self.Departmanlar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DepartmanHoldingSirket" Type="Self.DepartmanHoldingSirket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departmanlar">
+              <PropertyRef Name="DepartmanId" />
+            </Principal>
+            <Dependent Role="DepartmanHoldingSirket">
+              <PropertyRef Name="DepartmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmanHoldingSirket_Sirketler">
+          <End Role="Sirketler" Type="Self.Sirketler" Multiplicity="1" />
+          <End Role="DepartmanHoldingSirket" Type="Self.DepartmanHoldingSirket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sirketler">
+              <PropertyRef Name="SirketId" />
+            </Principal>
+            <Dependent Role="DepartmanHoldingSirket">
+              <PropertyRef Name="SirketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Kisi">
+          <End Role="Kisi" Type="Self.Kisi" Multiplicity="1" />
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="KullaniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Role_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="Kullanici_Role" Type="Self.Kullanici_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciId" />
+            </Principal>
+            <Dependent Role="Kullanici_Role">
+              <PropertyRef Name="KullaniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Role_Roller">
+          <End Role="Roller" Type="Self.Roller" Multiplicity="1" />
+          <End Role="Kullanici_Role" Type="Self.Kullanici_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roller">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="Kullanici_Role">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sirketler_Holdingler">
+          <End Role="Holdingler" Type="Self.Holdingler" Multiplicity="1" />
+          <End Role="Sirketler" Type="Self.Sirketler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Holdingler">
+              <PropertyRef Name="HoldingId" />
+            </Principal>
+            <Dependent Role="Sirketler">
+              <PropertyRef Name="HoldingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Kategori">
+          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Stok_Urun">
+          <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
+          <End Role="Urun_Stok" Type="Self.Urun_Stok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="Urun_Stok">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zimmet_Departmanlar">
+          <End Role="Departmanlar" Type="Self.Departmanlar" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Zimmet" Type="Self.Zimmet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departmanlar">
+              <PropertyRef Name="DepartmanId" />
+            </Principal>
+            <Dependent Role="Zimmet">
+              <PropertyRef Name="DepartmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zimmet_Kisi">
+          <End Role="Kisi" Type="Self.Kisi" Multiplicity="0..1" />
+          <End Role="Zimmet" Type="Self.Zimmet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="Zimmet">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fnc_DemirbasKodOlustur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="holdingId" Type="int" Mode="In" />
+          <Parameter Name="sirketId" Type="int" Mode="In" />
+          <Parameter Name="kategoriId" Type="int" Mode="In" />
+          <Parameter Name="demirbasId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_DemirbasDuzenle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="demirbasNo" Type="int" Mode="In" />
+          <Parameter Name="holdingId" Type="int" Mode="In" />
+          <Parameter Name="sirketId" Type="int" Mode="In" />
+          <Parameter Name="kategoriId" Type="int" Mode="In" />
+          <Parameter Name="demirbasAdedi" Type="int" Mode="In" />
+          <Parameter Name="demirbasAciklama" Type="text" Mode="In" />
+        </Function>
+        <Function Name="sp_DemirbasEkle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="holdingId" Type="int" Mode="In" />
+          <Parameter Name="sirketId" Type="int" Mode="In" />
+          <Parameter Name="kategoriId" Type="int" Mode="In" />
+          <Parameter Name="urunId" Type="int" Mode="In" />
+          <Parameter Name="demirbasAdedi" Type="int" Mode="In" />
+          <Parameter Name="demirbasAciklama" Type="text" Mode="In" />
+        </Function>
+        <Function Name="sp_Departmandaki_Demirbas01" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DepartmanId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_Departmandaki_Demirbas02" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DepartmanId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_DepartmanDemirbasEkle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DemirbasId" Type="int" Mode="In" />
+          <Parameter Name="DepartmanId" Type="int" Mode="In" />
+          <Parameter Name="Adet" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_DepartmanEkle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DepartmanAdi" Type="nvarchar" Mode="In" />
+          <Parameter Name="SirketId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_DepartmanGuncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DepartmanId" Type="int" Mode="In" />
+          <Parameter Name="DepartmanAdi" Type="nvarchar" Mode="In" />
+          <Parameter Name="SirketId" Type="int" Mode="In" />
+          <Parameter Name="KisiId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_kisi_Demirbas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="kisiId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_kisi_Demirbas1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="kisiId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_UrunEkle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KategoriId" Type="int" Mode="In" />
+          <Parameter Name="UrunAdi" Type="nvarchar" Mode="In" />
+          <Parameter Name="UrunBirimFiyati" Type="money" Mode="In" />
+          <Parameter Name="Stok" Type="int" Mode="In" />
+          <Parameter Name="SatinAlinmaTarihi" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_UrunGuncelle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UrunId" Type="int" Mode="In" />
+          <Parameter Name="KategoriId" Type="int" Mode="In" />
+          <Parameter Name="UrunAdi" Type="nvarchar" Mode="In" />
+          <Parameter Name="UrunBirimFiyati" Type="money" Mode="In" />
+          <Parameter Name="Stok" Type="int" Mode="In" />
+          <Parameter Name="SatinAlinmaTarihi" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="YaSinamaModelStoreContainer">
+          <EntitySet Name="Demirbas" EntityType="Self.Demirbas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Demirbas_Departman" EntityType="Self.Demirbas_Departman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepartmanHoldingSirket" EntityType="Self.DepartmanHoldingSirket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departmanlar" EntityType="Self.Departmanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Holdingler" EntityType="Self.Holdingler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kisi" EntityType="Self.Kisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici_Role" EntityType="Self.Kullanici_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roller" EntityType="Self.Roller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sirketler" EntityType="Self.Sirketler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urun_Stok" EntityType="Self.Urun_Stok" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zimmet" EntityType="Self.Zimmet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KisiDepartman" EntityType="Self.KisiDepartman" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[KisiDepartman].[KisiId] AS [KisiId], 
+[KisiDepartman].[Ad] AS [Ad], 
+[KisiDepartman].[Soyad] AS [Soyad], 
+[KisiDepartman].[DepartmanId] AS [DepartmanId], 
+[KisiDepartman].[DepartmanAdi] AS [DepartmanAdi]
+FROM [dbo].[KisiDepartman] AS [KisiDepartman]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Demirbas_Departman_Demirbas" Association="Self.FK_Demirbas_Departman_Demirbas">
+            <End Role="Demirbas" EntitySet="Demirbas" />
+            <End Role="Demirbas_Departman" EntitySet="Demirbas_Departman" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Demirbas_Departman_Zimmet" Association="Self.FK_Demirbas_Departman_Zimmet">
+            <End Role="Zimmet" EntitySet="Zimmet" />
+            <End Role="Demirbas_Departman" EntitySet="Demirbas_Departman" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Demirbas_Urun" Association="Self.FK_Demirbas_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Demirbas" EntitySet="Demirbas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmanHoldingSirket_Departmanlar" Association="Self.FK_DepartmanHoldingSirket_Departmanlar">
+            <End Role="Departmanlar" EntitySet="Departmanlar" />
+            <End Role="DepartmanHoldingSirket" EntitySet="DepartmanHoldingSirket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmanHoldingSirket_Sirketler" Association="Self.FK_DepartmanHoldingSirket_Sirketler">
+            <End Role="Sirketler" EntitySet="Sirketler" />
+            <End Role="DepartmanHoldingSirket" EntitySet="DepartmanHoldingSirket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Kisi" Association="Self.FK_Kullanici_Kisi">
+            <End Role="Kisi" EntitySet="Kisi" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Role_Kullanici" Association="Self.FK_Kullanici_Role_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Kullanici_Role" EntitySet="Kullanici_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Role_Roller" Association="Self.FK_Kullanici_Role_Roller">
+            <End Role="Roller" EntitySet="Roller" />
+            <End Role="Kullanici_Role" EntitySet="Kullanici_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sirketler_Holdingler" Association="Self.FK_Sirketler_Holdingler">
+            <End Role="Holdingler" EntitySet="Holdingler" />
+            <End Role="Sirketler" EntitySet="Sirketler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Stok_Urun" Association="Self.FK_Urun_Stok_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Urun_Stok" EntitySet="Urun_Stok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zimmet_Departmanlar" Association="Self.FK_Zimmet_Departmanlar">
+            <End Role="Departmanlar" EntitySet="Departmanlar" />
+            <End Role="Zimmet" EntitySet="Zimmet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zimmet_Kisi" Association="Self.FK_Zimmet_Kisi">
+            <End Role="Kisi" EntitySet="Kisi" />
+            <End Role="Zimmet" EntitySet="Zimmet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YaSinamaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Demirbas">
+          <Key>
+            <PropertyRef Name="DemirbasNo" />
+          </Key>
+          <Property Name="DemirbasNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunId" Type="Int32" />
+          <Property Name="DemirbasKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DemirbasAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DemirbasAdedi" Type="Int32" />
+          <Property Name="DemirbasAciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Demirbas_Departman" Relationship="Self.FK_Demirbas_Departman_Demirbas" FromRole="Demirbas" ToRole="Demirbas_Departman" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Demirbas_Urun" FromRole="Demirbas" ToRole="Urun" />
+        </EntityType>
+        <EntityType Name="Demirbas_Departman">
+          <Key>
+            <PropertyRef Name="DemirbasDepartmanId" />
+          </Key>
+          <Property Name="DemirbasDepartmanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DemirbasId" Type="Int32" Nullable="false" />
+          <Property Name="ZimmetId" Type="Int32" Nullable="false" />
+          <Property Name="Adet" Type="Int32" />
+          <NavigationProperty Name="Demirbas" Relationship="Self.FK_Demirbas_Departman_Demirbas" FromRole="Demirbas_Departman" ToRole="Demirbas" />
+          <NavigationProperty Name="Zimmet" Relationship="Self.FK_Demirbas_Departman_Zimmet" FromRole="Demirbas_Departman" ToRole="Zimmet" />
+        </EntityType>
+        <EntityType Name="DepartmanHoldingSirket">
+          <Key>
+            <PropertyRef Name="DepartmanHoldingSirketId" />
+          </Key>
+          <Property Name="DepartmanHoldingSirketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmanId" Type="Int32" Nullable="false" />
+          <Property Name="SirketId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Departmanlar" Relationship="Self.FK_DepartmanHoldingSirket_Departmanlar" FromRole="DepartmanHoldingSirket" ToRole="Departmanlar" />
+          <NavigationProperty Name="Sirketler" Relationship="Self.FK_DepartmanHoldingSirket_Sirketler" FromRole="DepartmanHoldingSirket" ToRole="Sirketler" />
+        </EntityType>
+        <EntityType Name="Departmanlar">
+          <Key>
+            <PropertyRef Name="DepartmanId" />
+          </Key>
+          <Property Name="DepartmanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DepartmanHoldingSirket" Relationship="Self.FK_DepartmanHoldingSirket_Departmanlar" FromRole="Departmanlar" ToRole="DepartmanHoldingSirket" />
+          <NavigationProperty Name="Zimmet" Relationship="Self.FK_Zimmet_Departmanlar" FromRole="Departmanlar" ToRole="Zimmet" />
+        </EntityType>
+        <EntityType Name="Holdingler">
+          <Key>
+            <PropertyRef Name="HoldingId" />
+          </Key>
+          <Property Name="HoldingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoldingAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Sirketler" Relationship="Self.FK_Sirketler_Holdingler" FromRole="Holdingler" ToRole="Sirketler" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Kategori" FromRole="Kategori" ToRole="Urun" />
+        </EntityType>
+        <EntityType Name="Kisi">
+          <Key>
+            <PropertyRef Name="KisiId" />
+          </Key>
+          <Property Name="KisiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_Kullanici_Kisi" FromRole="Kisi" ToRole="Kullanici" />
+          <NavigationProperty Name="Zimmet" Relationship="Self.FK_Zimmet_Kisi" FromRole="Kisi" ToRole="Zimmet" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciId" />
+          </Key>
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SonGirisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Silindi" Type="Boolean" />
+          <NavigationProperty Name="Kisi" Relationship="Self.FK_Kullanici_Kisi" FromRole="Kullanici" ToRole="Kisi" />
+          <NavigationProperty Name="Kullanici_Role" Relationship="Self.FK_Kullanici_Role_Kullanici" FromRole="Kullanici" ToRole="Kullanici_Role" />
+        </EntityType>
+        <EntityType Name="Kullanici_Role">
+          <Key>
+            <PropertyRef Name="KullaniciRoleId" />
+          </Key>
+          <Property Name="KullaniciRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_Kullanici_Role_Kullanici" FromRole="Kullanici_Role" ToRole="Kullanici" />
+          <NavigationProperty Name="Roller" Relationship="Self.FK_Kullanici_Role_Roller" FromRole="Kullanici_Role" ToRole="Roller" />
+        </EntityType>
+        <EntityType Name="Roller">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Kullanici_Role" Relationship="Self.FK_Kullanici_Role_Roller" FromRole="Roller" ToRole="Kullanici_Role" />
+        </EntityType>
+        <EntityType Name="Sirketler">
+          <Key>
+            <PropertyRef Name="SirketId" />
+          </Key>
+          <Property Name="SirketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoldingId" Type="Int32" Nullable="false" />
+          <Property Name="SirketAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DepartmanHoldingSirket" Relationship="Self.FK_DepartmanHoldingSirket_Sirketler" FromRole="Sirketler" ToRole="DepartmanHoldingSirket" />
+          <NavigationProperty Name="Holdingler" Relationship="Self.FK_Sirketler_Holdingler" FromRole="Sirketler" ToRole="Holdingler" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriId" Type="Int32" Nullable="false" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UrunBirimFiyati" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SatinAlinmaTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Silindi" Type="Boolean" />
+          <NavigationProperty Name="Demirbas" Relationship="Self.FK_Demirbas_Urun" FromRole="Urun" ToRole="Demirbas" />
+          <NavigationProperty Name="Kategori" Relationship="Self.FK_Urun_Kategori" FromRole="Urun" ToRole="Kategori" />
+          <NavigationProperty Name="Urun_Stok" Relationship="Self.FK_Urun_Stok_Urun" FromRole="Urun" ToRole="Urun_Stok" />
+        </EntityType>
+        <EntityType Name="Urun_Stok">
+          <Key>
+            <PropertyRef Name="StokId" />
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="StokId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunId" Type="Int32" Nullable="false" />
+          <Property Name="Stok" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Stok_Urun" FromRole="Urun_Stok" ToRole="Urun" />
+        </EntityType>
+        <EntityType Name="Zimmet">
+          <Key>
+            <PropertyRef Name="ZimmetId" />
+          </Key>
+          <Property Name="ZimmetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisiId" Type="Int32" />
+          <Property Name="DepartmanId" Type="Int32" />
+          <NavigationProperty Name="Demirbas_Departman" Relationship="Self.FK_Demirbas_Departman_Zimmet" FromRole="Zimmet" ToRole="Demirbas_Departman" />
+          <NavigationProperty Name="Departmanlar" Relationship="Self.FK_Zimmet_Departmanlar" FromRole="Zimmet" ToRole="Departmanlar" />
+          <NavigationProperty Name="Kisi" Relationship="Self.FK_Zimmet_Kisi" FromRole="Zimmet" ToRole="Kisi" />
+        </EntityType>
+        <EntityType Name="KisiDepartman">
+          <Key>
+            <PropertyRef Name="KisiId" />
+            <PropertyRef Name="Ad" />
+            <PropertyRef Name="Soyad" />
+            <PropertyRef Name="DepartmanId" />
+            <PropertyRef Name="DepartmanAdi" />
+          </Key>
+          <Property Name="KisiId" Type="Int32" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DepartmanId" Type="Int32" Nullable="false" />
+          <Property Name="DepartmanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Demirbas_Departman_Demirbas">
+          <End Role="Demirbas" Type="Self.Demirbas" Multiplicity="1" />
+          <End Role="Demirbas_Departman" Type="Self.Demirbas_Departman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Demirbas">
+              <PropertyRef Name="DemirbasNo" />
+            </Principal>
+            <Dependent Role="Demirbas_Departman">
+              <PropertyRef Name="DemirbasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Demirbas_Urun">
+          <End Role="Urun" Type="Self.Urun" Multiplicity="0..1" />
+          <End Role="Demirbas" Type="Self.Demirbas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="Demirbas">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Demirbas_Departman_Zimmet">
+          <End Role="Zimmet" Type="Self.Zimmet" Multiplicity="1" />
+          <End Role="Demirbas_Departman" Type="Self.Demirbas_Departman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zimmet">
+              <PropertyRef Name="ZimmetId" />
+            </Principal>
+            <Dependent Role="Demirbas_Departman">
+              <PropertyRef Name="ZimmetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmanHoldingSirket_Departmanlar">
+          <End Role="Departmanlar" Type="Self.Departmanlar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DepartmanHoldingSirket" Type="Self.DepartmanHoldingSirket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departmanlar">
+              <PropertyRef Name="DepartmanId" />
+            </Principal>
+            <Dependent Role="DepartmanHoldingSirket">
+              <PropertyRef Name="DepartmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DepartmanHoldingSirket_Sirketler">
+          <End Role="Sirketler" Type="Self.Sirketler" Multiplicity="1" />
+          <End Role="DepartmanHoldingSirket" Type="Self.DepartmanHoldingSirket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sirketler">
+              <PropertyRef Name="SirketId" />
+            </Principal>
+            <Dependent Role="DepartmanHoldingSirket">
+              <PropertyRef Name="SirketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zimmet_Departmanlar">
+          <End Role="Departmanlar" Type="Self.Departmanlar" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Zimmet" Type="Self.Zimmet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departmanlar">
+              <PropertyRef Name="DepartmanId" />
+            </Principal>
+            <Dependent Role="Zimmet">
+              <PropertyRef Name="DepartmanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sirketler_Holdingler">
+          <End Role="Holdingler" Type="Self.Holdingler" Multiplicity="1" />
+          <End Role="Sirketler" Type="Self.Sirketler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Holdingler">
+              <PropertyRef Name="HoldingId" />
+            </Principal>
+            <Dependent Role="Sirketler">
+              <PropertyRef Name="HoldingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Kategori">
+          <End Role="Kategori" Type="Self.Kategori" Multiplicity="1" />
+          <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Kisi">
+          <End Role="Kisi" Type="Self.Kisi" Multiplicity="1" />
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="KullaniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zimmet_Kisi">
+          <End Role="Kisi" Type="Self.Kisi" Multiplicity="0..1" />
+          <End Role="Zimmet" Type="Self.Zimmet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kisi">
+              <PropertyRef Name="KisiId" />
+            </Principal>
+            <Dependent Role="Zimmet">
+              <PropertyRef Name="KisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Role_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="Kullanici_Role" Type="Self.Kullanici_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciId" />
+            </Principal>
+            <Dependent Role="Kullanici_Role">
+              <PropertyRef Name="KullaniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kullanici_Role_Roller">
+          <End Role="Roller" Type="Self.Roller" Multiplicity="1" />
+          <End Role="Kullanici_Role" Type="Self.Kullanici_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roller">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="Kullanici_Role">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Stok_Urun">
+          <End Role="Urun" Type="Self.Urun" Multiplicity="1" />
+          <End Role="Urun_Stok" Type="Self.Urun_Stok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="Urun_Stok">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YaSinamaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Demirbas" EntityType="Self.Demirbas" />
+          <EntitySet Name="Demirbas_Departman" EntityType="Self.Demirbas_Departman" />
+          <EntitySet Name="DepartmanHoldingSirket" EntityType="Self.DepartmanHoldingSirket" />
+          <EntitySet Name="Departmanlar" EntityType="Self.Departmanlar" />
+          <EntitySet Name="Holdingler" EntityType="Self.Holdingler" />
+          <EntitySet Name="Kategori" EntityType="Self.Kategori" />
+          <EntitySet Name="Kisi" EntityType="Self.Kisi" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+          <EntitySet Name="Kullanici_Role" EntityType="Self.Kullanici_Role" />
+          <EntitySet Name="Roller" EntityType="Self.Roller" />
+          <EntitySet Name="Sirketler" EntityType="Self.Sirketler" />
+          <EntitySet Name="Urun" EntityType="Self.Urun" />
+          <EntitySet Name="Urun_Stok" EntityType="Self.Urun_Stok" />
+          <EntitySet Name="Zimmet" EntityType="Self.Zimmet" />
+          <EntitySet Name="KisiDepartman" EntityType="Self.KisiDepartman" />
+          <AssociationSet Name="FK_Demirbas_Departman_Demirbas" Association="Self.FK_Demirbas_Departman_Demirbas">
+            <End Role="Demirbas" EntitySet="Demirbas" />
+            <End Role="Demirbas_Departman" EntitySet="Demirbas_Departman" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Demirbas_Urun" Association="Self.FK_Demirbas_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Demirbas" EntitySet="Demirbas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Demirbas_Departman_Zimmet" Association="Self.FK_Demirbas_Departman_Zimmet">
+            <End Role="Zimmet" EntitySet="Zimmet" />
+            <End Role="Demirbas_Departman" EntitySet="Demirbas_Departman" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmanHoldingSirket_Departmanlar" Association="Self.FK_DepartmanHoldingSirket_Departmanlar">
+            <End Role="Departmanlar" EntitySet="Departmanlar" />
+            <End Role="DepartmanHoldingSirket" EntitySet="DepartmanHoldingSirket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DepartmanHoldingSirket_Sirketler" Association="Self.FK_DepartmanHoldingSirket_Sirketler">
+            <End Role="Sirketler" EntitySet="Sirketler" />
+            <End Role="DepartmanHoldingSirket" EntitySet="DepartmanHoldingSirket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zimmet_Departmanlar" Association="Self.FK_Zimmet_Departmanlar">
+            <End Role="Departmanlar" EntitySet="Departmanlar" />
+            <End Role="Zimmet" EntitySet="Zimmet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sirketler_Holdingler" Association="Self.FK_Sirketler_Holdingler">
+            <End Role="Holdingler" EntitySet="Holdingler" />
+            <End Role="Sirketler" EntitySet="Sirketler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Kisi" Association="Self.FK_Kullanici_Kisi">
+            <End Role="Kisi" EntitySet="Kisi" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zimmet_Kisi" Association="Self.FK_Zimmet_Kisi">
+            <End Role="Kisi" EntitySet="Kisi" />
+            <End Role="Zimmet" EntitySet="Zimmet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Role_Kullanici" Association="Self.FK_Kullanici_Role_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Kullanici_Role" EntitySet="Kullanici_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kullanici_Role_Roller" Association="Self.FK_Kullanici_Role_Roller">
+            <End Role="Roller" EntitySet="Roller" />
+            <End Role="Kullanici_Role" EntitySet="Kullanici_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Stok_Urun" Association="Self.FK_Urun_Stok_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Urun_Stok" EntitySet="Urun_Stok" />
+          </AssociationSet>
+          <FunctionImport Name="sp_DemirbasDuzenle">
+            <Parameter Name="demirbasNo" Mode="In" Type="Int32" />
+            <Parameter Name="holdingId" Mode="In" Type="Int32" />
+            <Parameter Name="sirketId" Mode="In" Type="Int32" />
+            <Parameter Name="kategoriId" Mode="In" Type="Int32" />
+            <Parameter Name="demirbasAdedi" Mode="In" Type="Int32" />
+            <Parameter Name="demirbasAciklama" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_DemirbasEkle">
+            <Parameter Name="holdingId" Mode="In" Type="Int32" />
+            <Parameter Name="sirketId" Mode="In" Type="Int32" />
+            <Parameter Name="kategoriId" Mode="In" Type="Int32" />
+            <Parameter Name="urunId" Mode="In" Type="Int32" />
+            <Parameter Name="demirbasAdedi" Mode="In" Type="Int32" />
+            <Parameter Name="demirbasAciklama" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Departmandaki_Demirbas01">
+            <Parameter Name="DepartmanId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Departmandaki_Demirbas02">
+            <Parameter Name="DepartmanId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_DepartmanDemirbasEkle">
+            <Parameter Name="DemirbasId" Mode="In" Type="Int32" />
+            <Parameter Name="DepartmanId" Mode="In" Type="Int32" />
+            <Parameter Name="Adet" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_DepartmanEkle">
+            <Parameter Name="DepartmanAdi" Mode="In" Type="String" />
+            <Parameter Name="SirketId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_DepartmanGuncelle">
+            <Parameter Name="DepartmanId" Mode="In" Type="Int32" />
+            <Parameter Name="DepartmanAdi" Mode="In" Type="String" />
+            <Parameter Name="SirketId" Mode="In" Type="Int32" />
+            <Parameter Name="KisiId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_kisi_Demirbas">
+            <Parameter Name="kisiId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_kisi_Demirbas1">
+            <Parameter Name="kisiId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UrunEkle">
+            <Parameter Name="KategoriId" Mode="In" Type="Int32" />
+            <Parameter Name="UrunAdi" Mode="In" Type="String" />
+            <Parameter Name="UrunBirimFiyati" Mode="In" Type="Decimal" />
+            <Parameter Name="Stok" Mode="In" Type="Int32" />
+            <Parameter Name="SatinAlinmaTarihi" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UrunGuncelle">
+            <Parameter Name="UrunId" Mode="In" Type="Int32" />
+            <Parameter Name="KategoriId" Mode="In" Type="Int32" />
+            <Parameter Name="UrunAdi" Mode="In" Type="String" />
+            <Parameter Name="UrunBirimFiyati" Mode="In" Type="Decimal" />
+            <Parameter Name="Stok" Mode="In" Type="Int32" />
+            <Parameter Name="SatinAlinmaTarihi" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YaSinamaModelStoreContainer" CdmEntityContainer="YaSinamaEntities">
+          <EntitySetMapping Name="Demirbas">
+            <EntityTypeMapping TypeName="YaSinamaModel.Demirbas">
+              <MappingFragment StoreEntitySet="Demirbas">
+                <ScalarProperty Name="DemirbasNo" ColumnName="DemirbasNo" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="DemirbasKodu" ColumnName="DemirbasKodu" />
+                <ScalarProperty Name="DemirbasAdi" ColumnName="DemirbasAdi" />
+                <ScalarProperty Name="DemirbasAdedi" ColumnName="DemirbasAdedi" />
+                <ScalarProperty Name="DemirbasAciklama" ColumnName="DemirbasAciklama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Demirbas_Departman">
+            <EntityTypeMapping TypeName="YaSinamaModel.Demirbas_Departman">
+              <MappingFragment StoreEntitySet="Demirbas_Departman">
+                <ScalarProperty Name="DemirbasDepartmanId" ColumnName="DemirbasDepartmanId" />
+                <ScalarProperty Name="DemirbasId" ColumnName="DemirbasId" />
+                <ScalarProperty Name="ZimmetId" ColumnName="ZimmetId" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartmanHoldingSirket">
+            <EntityTypeMapping TypeName="YaSinamaModel.DepartmanHoldingSirket">
+              <MappingFragment StoreEntitySet="DepartmanHoldingSirket">
+                <ScalarProperty Name="DepartmanHoldingSirketId" ColumnName="DepartmanHoldingSirketId" />
+                <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+                <ScalarProperty Name="SirketId" ColumnName="SirketId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departmanlar">
+            <EntityTypeMapping TypeName="YaSinamaModel.Departmanlar">
+              <MappingFragment StoreEntitySet="Departmanlar">
+                <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+                <ScalarProperty Name="DepartmanAdi" ColumnName="DepartmanAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holdingler">
+            <EntityTypeMapping TypeName="YaSinamaModel.Holdingler">
+              <MappingFragment StoreEntitySet="Holdingler">
+                <ScalarProperty Name="HoldingId" ColumnName="HoldingId" />
+                <ScalarProperty Name="HoldingAdi" ColumnName="HoldingAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategori">
+            <EntityTypeMapping TypeName="YaSinamaModel.Kategori">
+              <MappingFragment StoreEntitySet="Kategori">
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kisi">
+            <EntityTypeMapping TypeName="YaSinamaModel.Kisi">
+              <MappingFragment StoreEntitySet="Kisi">
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="YaSinamaModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="SonGirisTarihi" ColumnName="SonGirisTarihi" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici_Role">
+            <EntityTypeMapping TypeName="YaSinamaModel.Kullanici_Role">
+              <MappingFragment StoreEntitySet="Kullanici_Role">
+                <ScalarProperty Name="KullaniciRoleId" ColumnName="KullaniciRoleId" />
+                <ScalarProperty Name="KullaniciId" ColumnName="KullaniciId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roller">
+            <EntityTypeMapping TypeName="YaSinamaModel.Roller">
+              <MappingFragment StoreEntitySet="Roller">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RolAdi" ColumnName="RolAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sirketler">
+            <EntityTypeMapping TypeName="YaSinamaModel.Sirketler">
+              <MappingFragment StoreEntitySet="Sirketler">
+                <ScalarProperty Name="SirketId" ColumnName="SirketId" />
+                <ScalarProperty Name="HoldingId" ColumnName="HoldingId" />
+                <ScalarProperty Name="SirketAdi" ColumnName="SirketAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urun">
+            <EntityTypeMapping TypeName="YaSinamaModel.Urun">
+              <MappingFragment StoreEntitySet="Urun">
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="UrunBirimFiyati" ColumnName="UrunBirimFiyati" />
+                <ScalarProperty Name="SatinAlinmaTarihi" ColumnName="SatinAlinmaTarihi" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urun_Stok">
+            <EntityTypeMapping TypeName="YaSinamaModel.Urun_Stok">
+              <MappingFragment StoreEntitySet="Urun_Stok">
+                <ScalarProperty Name="StokId" ColumnName="StokId" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="Stok" ColumnName="Stok" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zimmet">
+            <EntityTypeMapping TypeName="YaSinamaModel.Zimmet">
+              <MappingFragment StoreEntitySet="Zimmet">
+                <ScalarProperty Name="ZimmetId" ColumnName="ZimmetId" />
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KisiDepartman">
+            <EntityTypeMapping TypeName="YaSinamaModel.KisiDepartman">
+              <MappingFragment StoreEntitySet="KisiDepartman">
+                <ScalarProperty Name="KisiId" ColumnName="KisiId" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+                <ScalarProperty Name="DepartmanAdi" ColumnName="DepartmanAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_DemirbasDuzenle" FunctionName="YaSinamaModel.Store.sp_DemirbasDuzenle" />
+          <FunctionImportMapping FunctionImportName="sp_DemirbasEkle" FunctionName="YaSinamaModel.Store.sp_DemirbasEkle" />
+          <FunctionImportMapping FunctionImportName="sp_Departmandaki_Demirbas01" FunctionName="YaSinamaModel.Store.sp_Departmandaki_Demirbas01" />
+          <FunctionImportMapping FunctionImportName="sp_Departmandaki_Demirbas02" FunctionName="YaSinamaModel.Store.sp_Departmandaki_Demirbas02" />
+          <FunctionImportMapping FunctionImportName="sp_DepartmanDemirbasEkle" FunctionName="YaSinamaModel.Store.sp_DepartmanDemirbasEkle" />
+          <FunctionImportMapping FunctionImportName="sp_DepartmanEkle" FunctionName="YaSinamaModel.Store.sp_DepartmanEkle" />
+          <FunctionImportMapping FunctionImportName="sp_DepartmanGuncelle" FunctionName="YaSinamaModel.Store.sp_DepartmanGuncelle" />
+          <FunctionImportMapping FunctionImportName="sp_kisi_Demirbas" FunctionName="YaSinamaModel.Store.sp_kisi_Demirbas" />
+          <FunctionImportMapping FunctionImportName="sp_kisi_Demirbas1" FunctionName="YaSinamaModel.Store.sp_kisi_Demirbas1" />
+          <FunctionImportMapping FunctionImportName="sp_UrunEkle" FunctionName="YaSinamaModel.Store.sp_UrunEkle" />
+          <FunctionImportMapping FunctionImportName="sp_UrunGuncelle" FunctionName="YaSinamaModel.Store.sp_UrunGuncelle" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

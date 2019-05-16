@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67ED9969-B30B-4274-8AE1-20AC80702FEA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StokTakip1</RootNamespace>
+    <AssemblyName>StokTakip1</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.1.UI, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FakeData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FakeData.1.0.0\lib\FakeData.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\DemirbasDepartmanKisiController.cs" />
+    <Compile Include="Controller\DemirbaslarController.cs" />
+    <Compile Include="Controller\DepartmanController.cs" />
+    <Compile Include="Controller\HoldingSirketController.cs" />
+    <Compile Include="Controller\PersonellerController.cs" />
+    <Compile Include="Controller\StokController.cs" />
+    <Compile Include="Controller\UrunController.cs" />
+    <Compile Include="Controller\UsersController.cs" />
+    <Compile Include="Model\Demirbas.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DemirbasViewModel.cs" />
+    <Compile Include="Model\Demirbas_Departman.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DepartmanHoldingSirket.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DepartmanHoldingSirketViewModel.cs" />
+    <Compile Include="Model\DepartmanKisiViewModel.cs" />
+    <Compile Include="Model\Departmanlar.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EDeleted.cs" />
+    <Compile Include="Model\ERoles.cs" />
+    <Compile Include="Model\Holdingler.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Kategori.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KategorilerViewModel.cs" />
+    <Compile Include="Model\Kisi.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KisiDepartman.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KisiKullaniciViewModel.cs" />
+    <Compile Include="Model\Kullanici.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Kullanici_Role.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Roller.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sirketler.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StokUrunViewModel.cs" />
+    <Compile Include="Model\Urun.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UrunKategoriViewModel.cs" />
+    <Compile Include="Model\Urun_Stok.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\YaSinamaDataContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YaSinamaDataContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\YaSinamaDataContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\YaSinamaDataContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YaSinamaDataContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Zimmet.cs">
+      <DependentUpon>YaSinamaDataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools.cs" />
+    <Compile Include="Views\Demirbas\frmDemirbasEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Demirbas\frmDemirbasEkle.Designer.cs">
+      <DependentUpon>frmDemirbasEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Demirbas\frmDemirbasIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Demirbas\frmDemirbasIslemleri.Designer.cs">
+      <DependentUpon>frmDemirbasIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Departman\frmDepartmanEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Departman\frmDepartmanEkle.Designer.cs">
+      <DependentUpon>frmDepartmanEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Departman\frmDepartmanSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Departman\frmDepartmanSil.Designer.cs">
+      <DependentUpon>frmDepartmanSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmDepartmanSorumlusu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmDepartmanSorumlusu.Designer.cs">
+      <DependentUpon>frmDepartmanSorumlusu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmSatisSorumlusu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmSatisSorumlusu.Designer.cs">
+      <DependentUpon>frmSatisSorumlusu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonelIslemleri\frmKullaniciEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PersonelIslemleri\frmKullaniciEkle.Designer.cs">
+      <DependentUpon>frmKullaniciEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonelIslemleri\frmPersonelIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PersonelIslemleri\frmPersonelIslemleri.Designer.cs">
+      <DependentUpon>frmPersonelIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personel\frmDepartmanPersonelList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Personel\frmDepartmanPersonelList.Designer.cs">
+      <DependentUpon>frmDepartmanPersonelList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Raporlar\frmRapor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Raporlar\frmRapor.Designer.cs">
+      <DependentUpon>frmRapor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Stok\frmStokaUrunEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Stok\frmStokaUrunEkle.Designer.cs">
+      <DependentUpon>frmStokaUrunEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Stok\frmStokIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Stok\frmStokIslemleri.Designer.cs">
+      <DependentUpon>frmStokIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserLogins\frmAdminLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserLogins\frmAdminLogin.Designer.cs">
+      <DependentUpon>frmAdminLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserLogins\frmDepartmanSorumlusuLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserLogins\frmDepartmanSorumlusuLogin.Designer.cs">
+      <DependentUpon>frmDepartmanSorumlusuLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserLogins\frmSatisSorumlusuLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserLogins\frmSatisSorumlusuLogin.Designer.cs">
+      <DependentUpon>frmSatisSorumlusuLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZimmetIslemleri\frmZimmet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ZimmetIslemleri\frmZimmet.Designer.cs">
+      <DependentUpon>frmZimmet.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\Demirbas\frmDemirbasEkle.resx">
+      <DependentUpon>frmDemirbasEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Demirbas\frmDemirbasIslemleri.resx">
+      <DependentUpon>frmDemirbasIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Departman\frmDepartmanEkle.resx">
+      <DependentUpon>frmDepartmanEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Departman\frmDepartmanSil.resx">
+      <DependentUpon>frmDepartmanSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmDepartmanSorumlusu.resx">
+      <DependentUpon>frmDepartmanSorumlusu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmSatisSorumlusu.resx">
+      <DependentUpon>frmSatisSorumlusu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PersonelIslemleri\frmKullaniciEkle.resx">
+      <DependentUpon>frmKullaniciEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PersonelIslemleri\frmPersonelIslemleri.resx">
+      <DependentUpon>frmPersonelIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Personel\frmDepartmanPersonelList.resx">
+      <DependentUpon>frmDepartmanPersonelList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Raporlar\frmRapor.resx">
+      <DependentUpon>frmRapor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Stok\frmStokaUrunEkle.resx">
+      <DependentUpon>frmStokaUrunEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Stok\frmStokIslemleri.resx">
+      <DependentUpon>frmStokIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserLogins\frmAdminLogin.resx">
+      <DependentUpon>frmAdminLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserLogins\frmDepartmanSorumlusuLogin.resx">
+      <DependentUpon>frmDepartmanSorumlusuLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserLogins\frmSatisSorumlusuLogin.resx">
+      <DependentUpon>frmSatisSorumlusuLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ZimmetIslemleri\frmZimmet.resx">
+      <DependentUpon>frmZimmet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\YaSinamaDataContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>YaSinamaDataContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\YaSinamaDataContext.edmx.diagram">
+      <DependentUpon>YaSinamaDataContext.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Elegant_Background-3-1200x675.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\YaSinamaDataContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YaSinamaDataContext.edmx</DependentUpon>
+      <LastGenOutput>YaSinamaDataContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\YaSinamaDataContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>YaSinamaDataContext.edmx</DependentUpon>
+      <LastGenOutput>YaSinamaDataContext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
